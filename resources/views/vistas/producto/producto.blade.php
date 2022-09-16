@@ -53,7 +53,6 @@
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
-                    <th>Stock</th>
                     <th></th>
                 </tr>
             </thead>
@@ -66,20 +65,8 @@
                     <td>{{$item->nombre}}</td>
                     <td>{{$item->descripcion}}</td>
                     <td>S/. {{$item->precio}}</td>
+                    
                     <td>
-                        {{-- {{$item->stock}} --}} 
-                        @if ($item->stock <= 5 && $item->stock > 2)
-                            <p style="background: rgb(255, 174, 0);padding: 5px"><i class="fas fa-exclamation-triangle"></i> &nbsp;{{$item->stock}}</p>
-                        @else
-                            @if ($item->stock < 3)                            
-                            <p style="background: rgb(194, 0, 0);color: white;padding: 5px"><i class="fas fa-times"></i> &nbsp;{{$item->stock}}</p>
-                            @else
-                            {{$item->stock}}
-                            @endif
-                        @endif
-                    </td>
-                    <td>
-
                         <a style="top: 0" href="{{route('producto.edit',$item->id_producto)}}"
                             class="btn btn-sm btn-warning m-1"><i class="fas fa-edit"></i></a>
                         <form action="{{route('producto.destroy',$item->id_producto)}}" method="get"

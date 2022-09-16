@@ -82,13 +82,7 @@
                 <small class="error error__text">{{$message}}</small>
                 @enderror
             </div>
-            <div class="fl-flex-label mb-4 col-12 col-lg-6">
-                <input type="number" min="0" name="stock" class="input input__text" placeholder="Stock *"
-                    value="{{old('stock',$item->stock)}}">
-                @error('stock')
-                <small class="error error__text">{{$message}}</small>
-                @enderror
-            </div>
+           
 
             <div class="fl-flex-label mb-4 col-12">
                 <textarea class="input input__text" name="descripcion" cols="30" rows="3"

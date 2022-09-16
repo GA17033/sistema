@@ -11,7 +11,5 @@ class Producto extends Model
     protected $table = "producto";
     protected $primaryKey = "id_producto";
     public $timestamps = false;
-    protected $fillable = [
-        "id_categoria", "nombre", "descripcion", "precio", "stock", "estado"
-    ];
+  
 }

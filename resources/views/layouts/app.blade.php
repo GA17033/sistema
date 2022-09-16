@@ -101,7 +101,7 @@
                 right: 0
             }
         </style>
-        @laravelPWA
+       
 
     </head>
 </head>
@@ -224,12 +224,30 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('herramienta.index')}}" class="{{ Request::is('usuario*') ? 'activo' : ''}}">
+                        <i class="fas fa-user-plus icono-submenu"></i>
+                        <span class="lbl">Herramientas_Proyecto</span>
+                    </a>
+                </li>
+                <li>
+                        <a href="{{route('inventario.index')}}"
+                        class="{{ Request::is('tipo-usuario*') ? 'activo' : ''}}">
+                        <i class="fas fa-user-tag icono-submenu"></i>
+                        <span class="lbl">Inventario</span>
+                        </a>
+                </li>
+                <li>
                         <a href="{{route('tipo.index')}}"
                         class="{{ Request::is('tipo-usuario*') ? 'activo' : ''}}">
                         <i class="fas fa-user-tag icono-submenu"></i>
                         <span class="lbl">Tipo usuario</span>
                         </a>
                 </li>
+                <li><a href="{{route('proyecto.index')}}">
+                <i class="fas fa-truck-moving icono-submenu"></i>
+                <span class="lbl">Proyecto</span>
+                </a>
+                </li> 
             @elseif(Auth::user()->tipo_usuario === 3 && Auth::user()->tipo_usuario==4)
             Encargado De Bodega
                
@@ -263,13 +281,7 @@
         @endif
 
         @endif
-        @if(!(Auth::user()->tipo_usuario != 4 ))
-        <li><a href="{{route('proyecto.index')}}">
-        <i class="fas fa-truck-moving icono-submenu"></i>
-        <span class="lbl">Proyecto</span>
-        </a>
-        </li> 
-        @endif
+       
 
     </ul>
     </li>

@@ -66,6 +66,9 @@
                 <textarea class="input input__text" name="descripcion" cols="30" rows="3"
                     placeholder="Descripcion del producto">{{old('descripcion')}}</textarea>
             </div>
+            <div class="fl-flex-label mb-4 col-12 col-lg-6">
+                <input type="file" name="foto" class="input form-control-file input__text" value="{{old('foto')}}">
+            </div>
 
             <div class="text-right mt-0">
                 <a href="{{route('proyecto.index')}}" class="btn btn-rounded btn-secondary m-2">Atras</a>

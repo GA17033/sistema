@@ -28,7 +28,6 @@ class RegistrarProductoRequest extends FormRequest
             "cate" => "required",
             "nombre" => ["required", new verificarNombre()],
             "precio" => "required|numeric|min:0",
-            "stock" => "required|integer|min:0"
         ];
     }
 

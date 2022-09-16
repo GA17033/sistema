@@ -41,10 +41,16 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         try {
-            $sql = DB::insert("insert into proyectos(id_usuario,nombre,descripcion,estado) values(?,?,?,1)", [
+            $foto = file_get_contents($_FILES['foto']['tmp_name']);
+        } catch (\Throwable $th) {
+            $foto = "";
+        }
+        try {
+            $sql = DB::insert("insert into proyectos(id_usuario,nombre,descripcion,foto,estado) values(?,?,?,?,1)", [
                 $request->cate,
                 $request->nombre,
                 $request->descripcion,
+                $foto,
             ]);
         } catch (\Throwable $th) {
             $sql = 0;
@@ -94,11 +100,17 @@ class ProyectoController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $sql = DB::update("update proyectos set id_usuario=?, nombre=?, descripcion=?
+            $foto= file_get_contents($_FILES['foto']['tmp_name']);
+        } catch (\Throwable $th) {
+            $foto = "";
+        }
+        try {
+            $sql = DB::update("update proyectos set id_usuario=?, nombre=?, descripcion=? , foto=? , estado=1
          where id_proyectos=?", [
                 $request->cate,
                 $request->nombre,
                 $request->descripcion,
+                $foto,
                 $id
             ]);
             if ($sql == 0) {

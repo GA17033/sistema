@@ -52,6 +52,7 @@
                     <th>Encargado</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
+                    <th>Foto</th>
                     <th></th>
                 </tr>
             </thead>
@@ -63,6 +64,10 @@
                     <td>{{$item->cate}}</td>
                     <td>{{$item->nombre}}</td>
                     <td>{{$item->descripcion}}</td>
+                    <td>                
+                        <img class="logo" src="data:image/jpg;base64,<?= base64_encode($item->foto) ?>" alt="" width="60px">
+                       
+                    </td>
                     <td>
 
                         <a style="top: 0" href="{{route('proyecto.edit',$item->id_proyecto)}}"

@@ -18,6 +18,8 @@ use App\Http\Controllers\TipoUsuarioController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HerramientaController;
+use App\Http\Controllers\InventarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -184,3 +186,28 @@ Route::post("/nueva-contraseña-reset", [RecuperarClaveController::class, 'reset
 /* respaldo bd */
 Route::get('/backup-bd', [CambiarClaveController::class, 'index'])->name("backup.index")->middleware('verified');
 Route::post('/backup-update-bd', [CambiarClaveController::class, 'update'])->name("backup.update")->middleware('verified');
+
+
+/* Herramientas_Proyecto*/
+
+Route::get("/herramientas", [HerramientaController::class, "index"])->name("herramienta.index")->middleware("verified");
+
+/* Herramientas_Proyecto*/
+//ruta para ir a vista para agregar herramientas
+Route::get("/Herramientas/{id}", [HerramientaController::class, "edit"])->name("herramienta.edit")->middleware('verified');
+Route::get("/Herramientas/create/{id}", [HerramientaController::class, "create"])->name("herramienta.create")->middleware('verified');
+//Route::post("/Herramientas/index", [HerramientaController::class, "index"])->name("herramienta.index")->middleware('verified');
+Route::post("/herramienta/registrar", [HerramientaController::class, "store"])->name("herramienta.store")->middleware("verified");
+//Route::get("/herramienta-crear", [HerramientaController::class, "create"])->name("herramienta.create")->middleware("verified");
+Route::get("/herramientas-eliminar-{id}", [HerramientaController::class, "destroy"])->name("herramienta.destroy")->middleware('verified');
+
+
+/* iNVENTARIO */
+Route::get("/inventario", [InventarioController::class, "index"])->name("inventario.index")->middleware("verified");
+Route::get("/inventario-crear", [InventarioController::class, "create"])->name("inventario.create")->middleware("verified");
+Route::post("/inventario-registrar", [InventarioController::class, "store"])->name("inventario.store")->middleware("verified");
+Route::get("/inventario-eliminar-{id}", [InventarioController::class, "destroy"])->name("inventario.destroy")->middleware('verified');
+
+
+
+
